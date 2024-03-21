@@ -1,33 +1,264 @@
 {% extends "index.html" %}
+{% load static %}
 {% block content %}
-<!--header section start-->
-<header class="header">
-    <!--start navbar-->
-    <nav class="navbar navbar-expand-lg fixed-top bg-transparent">
+    <section class="hero-equal-height ptb-70" style="background: url({% static 'img/t3-hero-shape.svg' %})no-repeat top center / cover">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/img/inventics_logo_web.png" alt="logo" class="img-fluid"/>
-                
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="ti-menu"></span>
-            </button>
-            <div class="collapse navbar-collapse h-auto" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto menu">
-                    <li><a href="index.html"> Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="project.html">Case Study</a></li>
-                    <!-- <li><a href="https://inventics.tech/solutions">Solutions</a></li> -->
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact-us.html" class="btn solid-white-btn check-btn">LET'S TALK</a></li>
-                </ul>
+            <div class="row align-items-center">
+                <div class="col-md-12 col-lg-5">
+                    <div class="hero-slider-content text-white pt-4">
+                        <h1 class="text-white">Let's Build something amazing</h1>
+                        <p class="lead">From Astonishing Product Design To Flawless Code, We Help You To Dominate ! </p>
+
+                        <div class="action-btns mt-3">
+                            <a href="contact-us.html" class="btn secondary-solid-btn">Get Start Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-7">
+                    <div class="image-wrap d-flex justify-content-end">
+                        <img src="{% static 'img/t3-hero-img.svg' %}" alt="hero" class="img-fluid custom-width">
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-</header>
-<!--header section end-->
+    </section>
+    <section class="promo-section p-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <a href="#">
+                        <div class="single-promo-2 single-promo-hover rounded text-center white-bg p-5">
+                            <div class="circle-icon">
+                                <span class="ti-signal text-white"></span>
+                            </div>
+                            <h5>Consistency</h5>
+                            <p>Delivering the best tech products with uniform quality, always aiming towards long term association.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <a href="#">
+                        <div class="single-promo-2 single-promo-hover rounded text-center white-bg p-5">
+                            <div class="circle-icon">
+                                <span class="ti-dashboard text-white"></span>
+                            </div>
+                            <h5>Competency</h5>
+                            <p>With the best set of technical minds, timely communication the customer is a core competency as well.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <a href="#">
+                        <div class="single-promo-2 single-promo-hover rounded text-center white-bg p-5">
+                            <div class="circle-icon">
+                                <span class="ti-headphone-alt text-white"></span>
+                            </div>
+                            <h5>Communication</h5>
+                            <p>We want our clients to be on the same page. Educating customers about technology.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% comment %} <!--call to action section start-->
+    <section class="call-to-action-video">
+        <div class="row m-0">
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="free-trial-image text-center">
+                    <img src="img/cta-2-girl-img.html" alt="image" class="img-fluid">
+                    <!-- <a href="https://www.youtube.com/watch?v=9No-FiEInLA"
+                       class="popup-youtube video-play-icon white-bip shadow"><span class="ti-control-play"></span> </a> -->
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="free-trial-content text-white">
+                    <h2 class="text-white">Best Consulting Every Business</h2>
+                    <p>We provide consulting services that address almost every facet of an organization.</p>
+                    <a href="contact-us.html" class="btn primary-solid-btn mt-3">Start Now</a>
+                </div>  
+            </div>
+        </div>
+    </section>
+    <!--call to action section end--> {% endcomment %}
+
+    <!--services section start-->
+    <section class="services-section ptb-100 gray-light-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="section-heading text-center mb-5">
+                        <strong class="color-secondary">Our Services</strong>
+                        <h2>What Can We Do For You</h2>
+                        <span class="animate-border mr-auto ml-auto mb-4"></span>
+                        <p class="lead">With a good blend of experience and domain knowledge, Inventics can offer you amazing services for your existing or new business ideas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
+                                                <i class="nexicon-3d-modeling-1 icon-lg color-secondary d-block mb-4"></i>
+                                                <h5>Web Development</h5>
+                        <p class="mb-0">Effective website design is a good mixture of art and functionality.</p>
+                        <a href="services-details/web-development.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
+                                                <i class="nexicon-analysis-2 icon-lg color-secondary d-block mb-4"></i>
+                                                <h5>Digital Marketing</h5>
+                        <p class="mb-0">Ranking your brand in top positions in search engines is crucial for generating revenue online.</p>
+                        <a href="services-details/digital-marketing.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
+                                                <span class="flaticon-processing-system icon-lg color-secondary d-block mb-4"></span>
+                                                <h5>UI/UX Design</h5>
+                        <p class="mb-0">We design and develop innovative digital user experiences.</p>
+                        <a href="services-details/ui-ux-design.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
+                                                <span class="flaticon-mobile icon-lg color-secondary d-block mb-4"></span>
+                                                <h5>App Development</h5>
+                        <p class="mb-0">Mobile computing is growing at a breakneck speed.</p>
+                        <a href="services-details/optimization.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
+                                                <i class="nexicon-analysis icon-lg color-secondary d-block mb-4"></i>
+                                                <h5>DevOps Implementation</h5>
+                        <p class="mb-0">AWS certiﬁed and highly skilled AWSTartOps and DevOps professionals.</p>
+                        <a href="services-details/devops.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
+                    </div>
+                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
+                                                <i class="nexicon-teaching icon-lg color-secondary d-block mb-4"></i>
+                                                <h5>Corporate Training &amp; Workshop</h5>
+                        <p class="mb-0">We offer latest IT training programs for all sizes of SMEs</p>
+                        <a href="services-details/corporate-training-workshop.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
+                    </div>
+                </div>
+                            </div>
+        </div>
+    </section>
+    <!--services section end-->
+
+    <section class="about-with-promo ptb-100 white-bg">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="about-content-wrap">
+                        <strong class="color-secondary">Inventics, Your Perfect Custom Software Development Partner</strong>
+                        <h2>Industry-Experienced Resources, On Demand</h2>
+                        <span class="animate-border mb-4"></span>
+                        <p>Globally parallel task quality methodologies whereas inexpensive sources. Uniquely
+                            administrate ubiquitous services through diverse quality vectors syndicate error-free
+                            intellectual capital. </p>
+
+                        <ul class="check-list-info">
+                            <li><strong>Advance Advisory Team</strong> –  Our Business Advisory team has advanced experience in providing strategic support to assist clients with meeting the demands of an ever-changing economic and business climate.
+                            </li>
+                            <li><strong>Professional Consulting Services</strong> – Our team works alongside companies to drive proven results and meet our client’s needs to ensure you focus on your core business goals.
+                            </li>
+                            <li><strong>Complete Code Control</strong> – We share code in day one, which can be mornitors easily with each commit our developers made. As we belive in providing best services to be with you forever unlike other companies holding over code to prevent you from seeking out other vendors. 
+                            </li>
+                            <li><strong>24/7 Support Help Center</strong> – Instant support includes email, support tickets, chat and phone.
+                            </li>
+                            
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-promo-wrap">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 promo-col">
+                                <div class="promo-item">
+                                    <div class="promo-img">
+                                        <img src="{% static 'img/increase.svg' %}" alt="services" width="60">
+                                    </div>
+                                    <h5>Scalable Solution</h5>
+                                    <p>Highly scalable solutions for heavy traffic business.</p>
+                                </div>
+                                <div class="promo-item">
+                                    <div class="promo-img">
+                                        <img src="{% static 'img/search-engine.svg' %}" alt="services" width="60">
+                                    </div>
+                                    <h5>Standard Code</h5>
+                                    <p>Well documented, clean and readable code.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 promo-col">
+                                <div class="promo-item">
+                                    <div class="promo-img">
+                                        <img src="{% static 'img/credit-card.svg' %}" alt="services" width="60">
+                                    </div>
+                                    <h5>Cost-effective</h5>
+                                    <p>We are expert, flexible and afordable.</p>
+                                </div>
+                                <div class="promo-item">
+                                    <div class="promo-img">
+                                        <img src="{% static 'img/interface.svg' %}" alt="services" width="60">
+                                    </div>
+                                    <h5>Certified Developers</h5>
+                                    <p>Developers are highly skilled and certified</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--about section with promo end-->
+    <section class="call-to-action ptb-70" style="background: url({% static 'img/cta-bg.jpg' %})no-repeat center center / cover">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-9">
+                    <div class="section-heading text-center text-white mb-5">
+                        <h2 class="text-white">HIRE US FOR YOUR NEXT PLAN</h2>
+                        <p class="lead">Start Project With Inventics </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="analysis-form-wrap text-center">
+                        <div class="col-lg-4 col-md-12 p-0">
+                            <div class="form-group analysis-form-group">
+                                <span class="analysis-form-input">
+                                    <input type="url" name="url" size="40" class="form-control" placeholder="Type website URL">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 p-0">
+                            <div class="form-group analysis-form-group analysis-form-border">
+                                <span class="analysis-form-input">
+                                    <input type="email" name="email" size="40" class="form-control" placeholder="Your Email">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 p-0">
+                            <div class="form-group">
+                                <input type="submit" value="Check Now">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cta-image d-none d-lg-block d-md-block">
+            <img src="{% static 'img/cta-1-man.svg' %}" width="200" class="img-left" alt="cta">
+            <img src="{% static 'img/cta-1-mike.svg' %}" width="200" class="img-right" alt="cta">
+        </div>
+    </section>
+    <!--call to action section end-->
+    
 {% endblock content %}
