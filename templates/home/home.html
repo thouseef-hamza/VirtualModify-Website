@@ -1,27 +1,43 @@
 {% extends "index.html" %}
 {% load static %}
 {% block content %}
-    <section class="hero-equal-height ptb-70" style="background: url({% static 'img/t3-hero-shape.svg' %})no-repeat top center / cover">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-12 col-lg-5">
-                    <div class="hero-slider-content text-white pt-4">
-                        <h1 class="text-white">Let's Build something amazing</h1>
-                        <p class="lead">From Astonishing Product Design To Flawless Code, We Help You To Dominate ! </p>
-
-                        <div class="action-btns mt-3">
-                            <a href="contact-us.html" class="btn secondary-solid-btn">Get Start Now</a>
+<section class="hero-equal-height ptb-70">
+    <div id="heroCarousel" class="carousel slide carousel-laptop" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'img/istockphoto-1292038829-1024x1024.jpg' %}" class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                           
+      
+                            <div class="col-12 text-center"> <!-- Full width for extra small and small screens -->
+                                <div class="hero-slider-content text-white">
+                                    <h1 class="text-white smoke-effect-h1">Let's Build Something Amazing</h1>
+                                    <p class="lead">From Astonishing Product Design To Flawless Code, We Help You To Dominate!</p>
+                                    <div class="action-btns mt-3">
+                                        <!-- <a href="contact-us.html" class="btn secondary-solid-btn">Get Started Now</a> -->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-7">
-                    <div class="image-wrap d-flex justify-content-end">
-                        <img src="{% static 'img/t3-hero-img.svg' %}" alt="hero" class="img-fluid custom-width">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
+
+
     <section class="promo-section p-5">
         <div class="container">
             <div class="row">
@@ -98,48 +114,48 @@
             </div>
             <div class="row">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                                                <i class="nexicon-3d-modeling-1 icon-lg color-secondary d-block mb-4"></i>
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm grey-bg rounded">
+                                                <i class="nexicon-3d-modeling-1  services-hover icon-lg color-secondary d-block mb-4"></i>
                                                 <h5>Web Development</h5>
                         <p class="mb-0">Effective website design is a good mixture of art and functionality.</p>
                         <a href="services-details/web-development.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
                     </div>
                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                                                <i class="nexicon-analysis-2 icon-lg color-secondary d-block mb-4"></i>
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm grey-bg rounded">
+                                                <i class="nexicon-analysis-2 services-hover icon-lg color-secondary d-block mb-4"></i>
                                                 <h5>Digital Marketing</h5>
                         <p class="mb-0">Ranking your brand in top positions in search engines is crucial for generating revenue online.</p>
                         <a href="services-details/digital-marketing.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
                     </div>
                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                                                <span class="flaticon-processing-system icon-lg color-secondary d-block mb-4"></span>
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm grey-bg rounded">
+                                                <span class="services-hover flaticon-processing-system icon-lg color-secondary d-block mb-4"></span>
                                                 <h5>UI/UX Design</h5>
                         <p class="mb-0">We design and develop innovative digital user experiences.</p>
                         <a href="services-details/ui-ux-design.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
                     </div>
                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                                                <span class="flaticon-mobile icon-lg color-secondary d-block mb-4"></span>
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm grey-bg rounded">
+                                                <span class="flaticon-mobile services-hover icon-lg color-secondary d-block mb-4"></span>
                                                 <h5>App Development</h5>
                         <p class="mb-0">Mobile computing is growing at a breakneck speed.</p>
                         <a href="services-details/optimization.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
                     </div>
                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                                                <i class="nexicon-analysis icon-lg color-secondary d-block mb-4"></i>
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm grey-bg rounded">
+                                                <i class="nexicon-analysis services-hover icon-lg color-secondary d-block mb-4"></i>
                                                 <h5>DevOps Implementation</h5>
                         <p class="mb-0">AWS certiﬁed and highly skilled AWSTartOps and DevOps professionals.</p>
                         <a href="services-details/devops.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
                     </div>
                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                                                <i class="nexicon-teaching icon-lg color-secondary d-block mb-4"></i>
+                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm grey-bg rounded">
+                                                <i class="nexicon-teaching services-hover icon-lg color-secondary d-block mb-4"></i>
                                                 <h5>Corporate Training &amp; Workshop</h5>
                         <p class="mb-0">We offer latest IT training programs for all sizes of SMEs</p>
                         <a href="services-details/corporate-training-workshop.html" target="_blank" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
@@ -155,7 +171,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about-content-wrap">
-                        <strong class="color-secondary">Inventics, Your Perfect Custom Software Development Partner</strong>
+                        <strong class="green-color">Inventics, Your Perfect Custom Software Development Partner</strong>
                         <h2>Industry-Experienced Resources, On Demand</h2>
                         <span class="animate-border mb-4"></span>
                         <p>Globally parallel task quality methodologies whereas inexpensive sources. Uniquely
@@ -217,14 +233,14 @@
             </div>
         </div>
     </section>
-    <!--about section with promo end-->
-    <section class="call-to-action ptb-70" style="background: url({% static 'img/cta-bg.jpg' %})no-repeat center center / cover">
+
+    <section class="call-to-action ptb-70" style="background: #000">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-9">
                     <div class="section-heading text-center text-white mb-5">
-                        <h2 class="text-white">HIRE US FOR YOUR NEXT PLAN</h2>
-                        <p class="lead">Start Project With Inventics </p>
+                        <h2 class="green-color">HIRE US FOR YOUR NEXT PLAN</h2>
+                        <p class="lead">Start Project With Virtual Modify </p>
                     </div>
                 </div>
             </div>
@@ -247,18 +263,138 @@
                         </div>
                         <div class="col-lg-4 col-md-12 p-0">
                             <div class="form-group">
-                                <input type="submit" value="Check Now">
+                                <input type="submit" style="background-color:#AAFF00" value="Check Now">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="cta-image d-none d-lg-block d-md-block">
-            <img src="{% static 'img/cta-1-man.svg' %}" width="200" class="img-left" alt="cta">
-            <img src="{% static 'img/cta-1-mike.svg' %}" width="200" class="img-right" alt="cta">
+    </section>
+
+       <!--testimonial section start-->
+       <section class="testimonial-section ptb-100" style="background: #f6f6f6">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="testimonial-heading text-white">
+                        <h2 class="text-black">What Our Client Say About Us</h2>
+                        <span class="animate-border mb-4"></span>
+                        <p style="color:#000;">Our work speak for itself. We are 100% commited towards the best quality product delivery.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="testimonial-content-wrap">
+                        <div class="owl-carousel owl-theme client-testimonial-1 custom-dot testimonial-shape">
+                                                        <div class="item">
+                                <div class="testimonial-quote-wrap">
+                                    <div class="media author-info mb-3">
+                                        <div class="author-img mr-3">
+                                            <img src="{% static 'uploads/media-uploader/bigbull1680001381.png' %}" alt="client" class="img-fluid">
+                                        </div>
+                                        <div class="media-body text-white">
+                                            <h5 class="mb-0 text-white">Ruchi Agarwal</h5>
+                                            <span>BIG BULL</span>
+                                        </div>
+                                        <span class="fas fa-quote-right icon-md text-white"></span>
+                                    </div>
+                                    <div class="client-say text-white">
+                                        Simpel team was very good to work with. They met the deadlines they committed to unless we were in their way. The web application turned out just perfect.
+                                    </div>
+                                </div>
+                            </div>
+                                                        <div class="item">
+                                <div class="testimonial-quote-wrap">
+                                    <div class="media author-info mb-3">
+                                        <div class="author-img mr-3">
+                                            <img src="{% static 'uploads/media-uploader/cvpl1680087166.png' %}" alt="client" class="img-fluid">
+                                        </div>
+                                        <div class="media-body text-white">
+                                            <h5 class="mb-0 text-white">Karan</h5>
+                                            <span>CVPL</span>
+                                        </div>
+                                        <span class="fas fa-quote-right icon-md text-white"></span>
+                                    </div>
+                                    <div class="client-say text-white">
+                                        We have been thoroughly impressed with the level of professionalism and expertise that Simpel has demonstrated. Their service has greatly improved our operations, and we are grateful for their dedication to our success.
+                                    </div>
+                                </div>
+                            </div>
+                                                        <div class="item">
+                                <div class="testimonial-quote-wrap">
+                                    <div class="media author-info mb-3">
+                                        <div class="author-img mr-3">
+                                            <img src="{% static 'uploads/media-uploader/22323-655782c2efbebe887ca13db3ff047922260c0b06-spin-cycles-m1637608261.jpg' %}" alt="client" class="img-fluid">
+                                        </div>
+                                        <div class="media-body text-white">
+                                            <h5 class="mb-0 text-white">Narendra</h5>
+                                            <span>Spin cycle</span>
+                                        </div>
+                                        <span class="fas fa-quote-right icon-md text-white"></span>
+                                    </div>
+                                    <div class="client-say text-white">
+                                        I would like to express my appreciation for the service provided by Simpel, which has significantly enhanced our workflow and productivity. The Simpel team's responsiveness to our requirements and their exceptional support throughout the implementation process was commendable. Thank you for your excellent service.
+                                    </div>
+                                </div>
+                            </div>
+                                                        <div class="item">
+                                <div class="testimonial-quote-wrap">
+                                    <div class="media author-info mb-3">
+                                        <div class="author-img mr-3">
+                                            <img src="{% static 'uploads/media-uploader/logo-gp-jpeg16443216281679998280.jpg' %}" alt="client" class="img-fluid">
+                                        </div>
+                                        <div class="media-body text-white">
+                                            <h5 class="mb-0 text-white">Anshuman</h5>
+                                            <span>Gita Press</span>
+                                        </div>
+                                        <span class="fas fa-quote-right icon-md text-white"></span>
+                                    </div>
+                                    <div class="client-say text-white">
+                                        "We have had a positive experience working with Simpel's staff as they have demonstrated a high level of knowledge and expertise in ensuring our systems run smoothly. Additionally, they have consistently gone above and beyond in providing exceptional support and have been instrumental in streamlining our processes. We greatly appreciate their dedication and proficiency in their work."
+                                    </div>
+                                </div>
+                            </div>
+                                                        <div class="item">
+                                <div class="testimonial-quote-wrap">
+                                    <div class="media author-info mb-3">
+                                        <div class="author-img mr-3">
+                                            <img src="{% static 'uploads/media-uploader/nani-11693847289.jpg' %}" alt="client" class="img-fluid">
+                                        </div>
+                                        <div class="media-body text-white">
+                                            <h5 class="mb-0 text-white">Abhishek</h5>
+                                            <span>Nani</span>
+                                        </div>
+                                        <span class="fas fa-quote-right icon-md text-white"></span>
+                                    </div>
+                                    <div class="client-say text-white">
+                                        "Working with Simpel has been a game-changer for our business. Their expertise in implementing advanced tech solutions streamlined our operations and boosted our efficiency. Their team is not only knowledgeable but also incredibly responsive and dedicated to our success."
+                                    </div>
+                                </div>
+                            </div>
+                                                        <div class="item">
+                                <div class="testimonial-quote-wrap">
+                                    <div class="media author-info mb-3">
+                                        <div class="author-img mr-3">
+                                            <img src="{% static 'uploads/media-uploader/paras1693847289.jpg' %}" alt="client" class="img-fluid">
+                                        </div>
+                                        <div class="media-body text-white">
+                                            <h5 class="mb-0 text-white">Rupin</h5>
+                                            <span>Paras Wires</span>
+                                        </div>
+                                        <span class="fas fa-quote-right icon-md text-white"></span>
+                                    </div>
+                                    <div class="client-say text-white">
+                                        "We've been with Simpel for several years, and they continue to impress us with their level of service. Their proactive approach to maintenance and their quick response times have minimized downtime and kept our business running smoothly."
+                                    </div>
+                                </div>
+                            </div>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <!--call to action section end-->
+    <!--testimonial section end-->
     
 {% endblock content %}
+{% include "includes/footer.html" %}
