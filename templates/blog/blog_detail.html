@@ -1,0 +1,123 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+ <!--header section start-->
+ <section class="hero-section ptb-100 gradient-overlay"
+ style="background: url({% static 'assets/img/header-bg-5.html' %}})no-repeat center center / cover">
+<div class="container">
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+        <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
+            <h2 class="text-white mb-0">{{blog_detail.title}}</h2>
+            <div class="custom-breadcrumb">
+                <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
+                    <li class="list-inline-item breadcrumb-item"><a href="{% url "home_page" %}">Home</a></li>
+                    <li class="list-inline-item breadcrumb-item"><a href="{% url "blog_list" %}" >Blog</a></li>
+                    <li class="list-inline-item breadcrumb-item active">{{blog_detail.title}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+</section>
+<!--header section end-->
+
+<!--blog section start-->
+<div class="module ptb-100">
+<div class="container">
+<div class="row">
+    
+    <div class="col-lg-8 col-md-8">
+   
+        <!-- Post-->
+        <article class="post">
+            <div class="post-preview"><img src="{{blog_detail.image.url}}" alt="article" class="img-fluid"/></div>
+            <div class="post-wrapper">
+                <div class="post-header">
+                    <h1 class="post-title">{{blog_detail.title}}</h1>
+                   
+                    <ul class="post-meta">
+                        <li>{{ blog_detail.created_at|date:"Y-m-d" }} {{ blog_detail.created_at|time:"H:i:s" }}</li>
+                        <li>By <a href="#">Admin</a></li>
+                    </ul>
+                   
+                </div>
+               
+                <div class="post-content">
+                    <p style="box-sizing: inherit; margin-bottom: 1.5rem; font-family: &quot;Tiempos Text&quot;, Helvetica, Arial; font-size: 1.125rem; line-height: 1.72222; text-rendering: optimizespeed; letter-spacing: -0.000375rem; color: rgb(40, 40, 40);">{{blog_detail.description}}</p>
+                </div>
+                {% comment %} <div class="post-footer">
+                    <div class="post-tags">
+                    <a href="#">Myth</a>                                </div>
+                </div> {% endcomment %}
+                
+            </div>
+        </article>
+        <!-- Post end-->
+    </div>
+    
+    <div class="col-lg-4 col-md-4">
+        <div class="sidebar-right pl-4">
+
+            {% comment %} <!-- Search widget-->
+            <aside class="widget widget-search">
+                <form>
+                    <input class="form-control" type="search" placeholder="Type Search Words">
+                    <button class="search-button" type="submit"><span class="ti-search"></span></button>
+                </form>
+            </aside> {% endcomment %}
+
+
+            <!-- Categories widget-->
+            {% comment %} <aside class="widget widget-categories">
+                <div class="widget-title">
+                    <h6>Categories</h6>
+                </div>
+                <ul>
+                                                    <li><a href="../blog/1.html">Startup Business</a></li>
+                                                    <li><a href="../blog/2.html">Ecommerce</a></li>
+                                                    <li><a href="../blog/3.html">Digital Marketing</a></li>
+                                                    <li><a href="../blog/13.html">Web design &amp; Development</a></li>
+                                                    <li><a href="../blog/14.html">AI</a></li>
+                                                    <li><a href="../blog/15.html">Cloud Computing</a></li>
+                                                    <li><a href="../blog/16.html">ERP</a></li>
+                                                    <li><a href="../blog/17.html">The Art of Digital Marketing</a></li>
+                                                </ul>
+            </aside> {% endcomment %}
+            {% if blogs %}
+            <aside class="widget widget-recent-entries-custom">
+                <div class="widget-title">
+                    <h6>Recent Posts</h6>
+                </div>
+                <ul>
+                    {% for blog in blogs %}
+                    <li class="clearfix">
+                        <div class="wi"><a href="{% url "blog_detail" blog.id %}"><img src="{{blog.image.url}}" alt="recent post" class="img-fluid rounded"/></a></div>
+                        <div class="wb"><a href="{% url "blog_detail" blog.id %}">{{blog.description|truncatechars:70|default_if_none:""}}</a><span class="post-date">{{ blog.created_at|date:"Y-m-d" }} {{ blog.created_at|time:"H:i:s" }}</span></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </aside>
+            {% endif %}
+            <!-- Subscribe widget-->
+            <aside class="widget widget-categories">
+                <div class="widget-title">
+                    <h6>Newsletter</h6>
+                </div>
+                <p>Enter your email address below to subscribe to my newsletter</p>
+                <form action="#" method="post"
+                      class="d-none d-md-block d-lg-block">
+                    <input type="text" class="form-control input" id="email-footer" name="email"
+                           placeholder="info@yourdomain.com">
+                    <button type="submit" class="btn secondary-solid-btn btn-block btn-not-rounded mt-3">Subscribe</button>
+                </form>
+            </aside> 
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!--blog section end-->
+{% endblock content %}

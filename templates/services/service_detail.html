@@ -1,0 +1,79 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+    <section class="hero-section ptb-100 gradient-overlay">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-7">
+                    <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
+                        <h2 class="text-white mb-0">{{service_detail.title}}</h2>
+                        <div class="custom-breadcrumb">
+                            <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
+                                <li class="list-inline-item breadcrumb-item"><a href="{% url "home_page" %}">Home</a></li>
+                                <li class="list-inline-item breadcrumb-item"><a href="{% url "blog_list" %}" >Blog</a></li>
+                                <li class="list-inline-item breadcrumb-item active">{{service_detail.title}}</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service-details-section ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="service-details-wrap">
+                        <img src="{{service_detail.image.url}}" alt="services {{service.id}}" class="img-fluid rounded shadow-sm"/>
+                        <div class="services-detail-content mt-4">
+                            <p>{{service_detail.description|linebreaks}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="sidebar-right pl-4">
+                        <!--all services list-->
+                        {% if services %}
+                        <aside class="widget widget-categories">
+                            <div class="widget-title">
+                                <h5>Our Services</h5>
+                            </div>
+                            <ul class="all-service-list">
+                                {% for service in services %}
+                                <li><a href="{% url "service_detail" service.id %}">{{service.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </aside>
+                        {% endif %}
+                        
+                        <!--need help-->
+                        <aside class="widget widget-categories">
+                            <div class="widget-title">
+                                <h5>Need Help?</h5>
+                            </div>
+                            <p>We are available in 24/7 hours for dedicated support</p>
+                            <ul class="primary-list mt-25">
+                                <li><span class="ti-mobile mr-2 color-primary"></span> +91 82 9988 6767</li>
+                                <li><span class="ti-email mr-2 color-primary"></span> info@inevntics.tech</li>
+                            </ul>
+                        </aside> 
+                        <!-- Subscribe widget-->
+                        <aside class="widget widget-categories">
+                            <div class="widget-title">
+                                <h5>Newsletter</h5>
+                            </div>
+                            <p>Enter your email address below to subscribe to my newsletter</p>
+                            <form action="#" method="post"
+                                  class="d-none d-md-block d-lg-block">
+                                <input type="text" class="form-control input" id="email-footer" name="email"
+                                       placeholder="info@yourdomain.com">
+                                <button type="submit" class="btn secondary-solid-btn btn-block btn-not-rounded mt-3">Subscribe
+                                </button>
+                            </form>
+                        </aside> 
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -422,6 +422,26 @@ jQuery(function ($) {
     }
   });
 
+   // ChangeJS 1.Our Promo Carousel
+   $('.promo-carousel').owlCarousel({
+    autoplay: true,
+    loop: true,
+    margin: 15,
+    dots: false,
+    slideTransition: 'linear',
+    autoplayTimeout: 4500,
+    autoplayHoverPause: true,
+    autoplaySpeed: 4500,
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 3
+      },
+    }
+  });
+
   // 15. wow js
   function wowAnimation() {
     new WOW({

@@ -4,26 +4,22 @@
     <!--start navbar-->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top scrolled affix">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{% url "home_page" %}">
                 <img src="{% static "img/inlogo.png" %}" alt="logo" height="auto" width="50px" class="img-fluid"/>
                 
             </a>
-            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="ti-menu"></span>
             </button>
             <div class="collapse navbar-collapse h-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto menu">
-                    <li><a href="index.html"> Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="project.html">Case Study</a></li>
-                    <!-- <li><a href="https://inventics.tech/solutions">Solutions</a></li> -->
-                    <li><a href="about-us.html">About Us</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact-us.html" class="btn solid-white-btn check-btn">LET'S TALK</a></li>
+                    <li><a href="{% url 'home_page' %}">Home</a></li>
+                    <li><a href="{% url "service_list" %}">Services</a></li>
+                    <li><a href="{% url "about_us" %}">About Us</a></li>
+                    <li><a href="{% url "career_list" %}">Careers</a></li>
+                    <li><a href="{% url "blog_list" %}">Blog</a></li>
+                    <li><a href="{% url "contact_us" %}" class="btn solid-white-btn check-btn">LET'S TALK</a></li>
                 </ul>
             </div>
         </div>
