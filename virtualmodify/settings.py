@@ -14,7 +14,7 @@ SECRET_KEY = "django-insecure-25snak7=nou$1k%8*(_jt))44ny@mx)l+q466&d7xpe9l1#lxf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://virtualmodify-website.onrender.com","localhost"]
 
 
 # Application definition
