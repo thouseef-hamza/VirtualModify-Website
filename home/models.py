@@ -55,6 +55,9 @@ class Feature(models.Model):
     def __str__(self) -> str:
         return self.title
     
+class JobType(models.Model):
+    name=models.CharField(max_length=125)
+    
 class Career(models.Model):
     title=models.CharField(max_length=100)
     position=models.CharField(max_length=50)
@@ -62,6 +65,9 @@ class Career(models.Model):
     description=models.TextField()
     qualification=models.CharField(max_length=60)
     salary=models.CharField(max_length=15)
+    job_type=models.ManyToManyField(JobType,related_name="job_type")
+    responsibilities=models.TextField()
+    requirements=models.TextField()
 
     def __str__(self) -> str:
         return self.title
@@ -69,8 +75,9 @@ class Career(models.Model):
 class ContactUS(models.Model):
     first_name=models.CharField(max_length=30)
     last_name=models.CharField(max_length=30)
-    email=models.EmailField()
+    email=models.EmailField(null=True)
     phone_number=models.CharField(max_length=15)
+    message=models.TextField()
 
     def __str__(self) -> str:
         return self.full_name()
@@ -85,3 +92,10 @@ class Client(models.Model):
     def __str__(self) -> str:
         return self.company_name
     
+
+class Enquiry(models.Model):
+    website=models.URLField()
+    email=models.EmailField()
+
+    def __str__(self) -> str:
+        return self.email

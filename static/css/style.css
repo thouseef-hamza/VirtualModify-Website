@@ -5120,3 +5120,8 @@ button.scroll-top:focus{
 .grey-bg{
     background-color: #e8e8e8;
 }
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1260px;
+    }
+}

@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from .models import Blog,Service,Feature,Testimonial,Client,Carousel
+from .models import Blog,Service,Feature,Testimonial,Client,Carousel,Career,Enquiry,ContactUS
 from django.shortcuts import get_object_or_404
+from .forms import EnquiryForm,ContactForm
+
 
 # Create your views here.
 
@@ -52,10 +54,48 @@ def about_us(request):
     return render(request,"about_us.html")
 
 def career_list(request):
-    return render(request,"careers/career_list.html")
+    careers=Career.objects.all()
+    return render(request,"careers/career_list.html",{"careers":careers})
 
 def career_detail(request,id):
-    return render(request,"careers/career_detail.html")
+    career=get_object_or_404(Career.objects.prefetch_related("job_type"),id=id)
+    return render(request,"careers/career_detail.html",{"career":career})
 
 def contact_us(request):
     return render(request,"contact_us.html")
+
+from django.http import JsonResponse
+def enquiry(request):
+    forms = EnquiryForm(request.POST)
+    if not forms.is_valid():
+        return JsonResponse({"errors": forms.errors, "success": False, "status": 400})
+    Enquiry.objects.create(
+        website=forms.cleaned_data.get("website"),
+        email=forms.cleaned_data.get("email")
+    )
+    return JsonResponse(
+        {
+            "message": "Form Submitted Successfully",
+            "success": True,
+            "status": 201,
+        }
+    )
+
+def contact_us_view(request):
+    forms = ContactForm(request.POST)
+    if not forms.is_valid():
+        return JsonResponse({"errors": forms.errors, "success": False, "status": 400})
+    ContactUS.objects.create(
+        first_name=forms.cleaned_data.get("first_name", None),
+        last_name=forms.cleaned_data.get("last_name", None),
+        email=forms.cleaned_data.get("email",None),
+        phone_number=forms.cleaned_data.get("phone_number", None),
+        message=forms.cleaned_data.get("message", None),
+    )
+    return JsonResponse(
+        {
+            "message": "Form Submitted Successfully",
+            "success": True,
+            "status": 201,
+        }
+    )

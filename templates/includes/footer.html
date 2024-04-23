@@ -1,3 +1,4 @@
+{% load static %}
 <footer class="footer-section">
     <!--footer top start-->
     <div class="footer-top gradient-bg">
@@ -7,7 +8,7 @@
                     <div class="row footer-top-wrap">
                         <div class="col-md-4 col-sm-6">
                             <div class="footer-nav-wrap text-white">
-                            <img src="assets/img/logo-white-small.png" alt="logo" class="mb-2">
+                            <img src="{% static "img/logo.png" %}" width="150px" alt="logo" class="mb-2">
                                 <p>More than two decade of incredible service, we have been creating high-performance websites, apps, and software for all size of SMEs</p>
                                 <div class="social-nav mt-4">
                                     <ul class="list-unstyled social-list mb-0">
@@ -88,13 +89,13 @@
             
                                     <!--<li class="d-flex align-items-center py-2"><span class="fas fa-phone-alt mr-2"></span> (123) 456-7890 - (123) 456-7890</li>-->
                                 </ul>
-                                <form class="newsletter-form mt-3" action="https://inventics.tech/subscribe" method="POST" id="contactForm" class="contact-us-form" enctype="multipart/form-data">
+                                {% comment %} <form class="newsletter-form mt-3" action="https://inventics.tech/subscribe" method="POST" id="contactForm" class="contact-us-form" enctype="multipart/form-data">
                                      <input type="hidden" name="_token" value="ZBetc8BZOofG4LsiuvMgmZKt383WM023MLQar2xP">                                    <input type="text" class="input-newsletter" placeholder="Enter your email"
                                            name="email" required="" autocomplete="off">
                                     <button type="submit" class="disabled"
                                             style="pointer-events: all; cursor: pointer; background:#aaff00"><i
                                             class="fas fa-paper-plane"></i></button>
-                                </form>
+                                </form> {% endcomment %}
                             </div>
                         </div>
                     </div>

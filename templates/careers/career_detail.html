@@ -5,12 +5,12 @@ style="background: url('assets/img/header-bg-5.html')no-repeat center center / c
 <div class="row justify-content-center">
    <div class="col-md-8 col-lg-7">
        <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
-           <h2 class="text-white mb-0">Android Developer</h2>
+           <h2 class="text-white mb-0">{{career.position}}</h2>
            <div class="custom-breadcrumb">
                <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
-                   <li class="list-inline-item breadcrumb-item"><a href="../index.html">Home</a></li>
-                   <li class="list-inline-item breadcrumb-item"><a href="../careers.html" >Careers</a></li>
-                   <li class="list-inline-item breadcrumb-item active">android-developer-lucknow-jIwfsxY7</li>
+                   <li class="list-inline-item breadcrumb-item"><a href="{% url "home_page" %}">Home</a></li>
+                   <li class="list-inline-item breadcrumb-item"><a href="{% url "career_list" %}" >Careers</a></li>
+                   <li class="list-inline-item breadcrumb-item active">{{career.position}}</li>
                </ol>
            </div>
        </div>
@@ -31,18 +31,19 @@ style="background: url('assets/img/header-bg-5.html')no-repeat center center / c
        <article class="post">
            <div class="post-wrapper">
                <div class="post-header">
-                   <h1 class="post-title">Android Developer</h1>
+                   <h1 class="post-title">{{career.position}}</h1>
                    <ul class="post-meta">
-                       <li>Location : <a href="#">Lucknow</a></li>
+                       <li>Location : <a href="#">{{career.location}}</a></li>
                    </ul>
                </div>
               
                <div class="post-content">
                    <h5 class="post-title">Job Description</h1>
-                   We are looking for an Android Developer who possesses a passion for pushing mobile technologies to the limits.&nbsp;This Android app developer will work with our team of talented engineers to design and build the next generation of our mobile applications. Android programming works closely with other app development and technical teams.<br><li>Strong knowledge of Android SDK, different versions of Android, and how to deal with different screen sizes</li><li>Familiarity with RESTful APIs to connect Android applications to back-end services</li><li>Strong knowledge of Android UI design principles, patterns, and best practices</li><li>Experience with offline storage, threading, and performance tuning</li><li>Ability to design applications around natural user interfaces, such as “touch”</li><li>Knowledge of the open-source Android ecosystem and the libraries available for common tasks</li><li>Ability to understand business requirements and translate them into technical requirements</li><li>Familiarity with cloud message APIs and push notifications</li><li>A knack for bench marking and optimization</li><li>Understanding of Google’s Android design principles and interface guidelines</li><li>Proficient understanding of code versioning tools, such as Git</li><li>Familiarity with continuous integration</li><li></li><li><br></li>
+                    {{career.description}}
                    <hr>
                    <h5 class="post-title">Job Requirement</h1>
-                   <li>BS/MS degree in Computer Science, Engineering or a related subject</li><li>Proven software development experience and Android skills development</li><li>Proven working experience in Android app development and</li><li>Have published at least one original Android app</li><li>Experience with Android SDK</li><li>Experience working with remote data via REST and JSON</li><li>Experience with third-party libraries and APIs</li><li>Working knowledge of the general mobile landscape, architectures, trends, and emerging technologies</li><li>Solid understanding of the full mobile development life cycle</li>
+                    {{career.requirements}}
+                   {% comment %} <li>BS/MS degree in Computer Science, Engineering or a related subject</li><li>Proven software development experience and Android skills development</li><li>Proven working experience in Android app development and</li><li>Have published at least one original Android app</li><li>Experience with Android SDK</li><li>Experience working with remote data via REST and JSON</li><li>Experience with third-party libraries and APIs</li><li>Working knowledge of the general mobile landscape, architectures, trends, and emerging technologies</li><li>Solid understanding of the full mobile development life cycle</li> {% endcomment %}
                </div>
               
            </div>
@@ -59,18 +60,18 @@ style="background: url('assets/img/header-bg-5.html')no-repeat center center / c
            <aside class="widget widget-categories">
                <div class="widget-title">
                    <h6>Salary</h6>
-                   <p>₹3,00,000 - ₹10 PA.</p>
+                   <p>₹ {{career.salary}}</p>
                </div>
                <hr>
                <div class="widget-title">
                    <h6>Job Location</h6>
-                   <p>Lucknow</p>
+                   <p>{{career.location}}</p>
                </div>
                <hr>
-               <div class="widget-title">
+               {% comment %} <div class="widget-title">
                    <h6>Job Type</h6>
-                   <p>Full Time Permanent</p>
-               </div>
+                   <p>{{}}</p>
+               </div> {% endcomment %}
            </aside>
        </div>
    </div>

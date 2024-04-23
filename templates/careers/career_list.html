@@ -10,7 +10,7 @@
                         <h1 class="text-white mb-0">Careers</h1>
                         <div class="custom-breadcrumb">
                             <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
-                                <li class="list-inline-item breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="list-inline-item breadcrumb-item"><a href="{% url "home_page" %}">Home</a></li>
                                 <li class="list-inline-item breadcrumb-item active">Careers</li>
                             </ol>
                         </div>
@@ -30,61 +30,20 @@
                     <div class="section-heading text-center mb-4">
                         <strong class="color-secondary">Explore opportunities</strong>
                         <h2>Discover your new career</h2>
-                        <span class="animate-border mr-auto ml-auto mb-4"></span>
                         <p class="lead">Come be part of our team with Inventics – bring your ideas and determination to make a difference. Join us and help our clients become the best versions of themselves.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
+                {% for career in careers %}
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                        <h5>Internship | Jan 2024</h5>
-                        <p class="mb-0">Lucknow | Internship </p>
-                        <a href="job-details/internship-jan-2024-lucknow-sJzjPqRz.html" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
+                        <h5>{{career.position}}</h5>
+                        <p class="mb-0">{{career.location}}</p>
+                        <a href="{% url "career_detail" career.id %}" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
                     </div>
-                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                        <h5>Node JS</h5>
-                        <p class="mb-0">Lucknow | Full Time Permanent </p>
-                        <a href="job-details/node-js-lucknow-5unYaQwg.html" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
-                    </div>
-                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                        <h5>Full Stack Developer</h5>
-                        <p class="mb-0">Lucknow | Full Time Permanent </p>
-                        <a href="job-details/full-stack-developer-lucknow-NrOkAOLW.html" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
-                    </div>
-                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                        <h5>Content Writer</h5>
-                        <p class="mb-0">Lucknow | Full Time Permanent </p>
-                        <a href="job-details/content-writer-lucknow-kMZYM63b.html" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
-                    </div>
-                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                        <h5>Android Developer</h5>
-                        <p class="mb-0">Lucknow | Full Time Permanent </p>
-                        <a href="job-details/android-developer-lucknow-jIwfsxY7.html" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
-                    </div>
-                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                        <h5>Business Analyst</h5>
-                        <p class="mb-0">Bengaluru | Full Time Permanent </p>
-                        <a href="job-details/business-analyst-bengaluru-8rmUbuAw.html" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
-                    </div>
-                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm white-bg rounded">
-                        <h5>DevOps Architect</h5>
-                        <p class="mb-0">Bengaluru | Full Time Permanent </p>
-                        <a href="job-details/devops-architect-bengaluru-Ov9Jxt0e.html" class="detail-link mt-4">Read more <span class="ti-arrow-right"></span></a>
-                    </div>
-                </div>
+                </div>   
+                {% endfor %}
                             </div>
         </div>
     </section>
