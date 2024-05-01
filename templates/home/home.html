@@ -4,27 +4,18 @@
   <div id="heroCarousel" class="carousel slide carousel-laptop" data-ride="carousel">
     <div class="carousel-inner">
       {% for carousel in carousels %}
-      <div class="carousel-item {% if forloop.first %}active{% endif %}" style="background-image: url('{{carousel.image.url}}');">
-        <div class="carousel-caption d-none d-md-block">
-          <div class="container">
-            <div class="row align-items-center justify-content-center">
-              <div class="col-12 text-center">
-                <div class="hero-slider-content text-white">
-                  <h1 class="text-white smoke-effect-h1 typed-text" data-text="{{carousel.title}}"></h1>
-                  <p class="lead typed-text" data-text="{{carousel.sub_title}}"></p>
-                  <!-- Add short length text and quotes below -->
-                  <h5 class="typed-text" data-text="Short Length Text"></h5>
-                  <p class="typed-text" data-text="Quote related to the carousel content"></p>
-                </div>
-              </div>
-            </div>
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ carousel.image.url }}" class="d-block w-100" alt="{{ image.alt }}">
+          <div class="carousel-caption d-none d-md-block mt-5">
+              <h4>{{ carousel.title }}</h4>
+              <h5>{{ carousel.sub_title }}</h5>
+              <button class="btn solid-white-btn check-btn">Get Started</button>
           </div>
-        </div>
       </div>
       {% endfor %}
     </div>
-  </div>
-  
+  </div>  
+
   </section>
 {% endif %}
 {% if features %}
@@ -33,9 +24,8 @@
     <div class="owl-carousel owl-theme promo-carousel">
       {% for feature in features %}
       <div class="item">
-        <div class="">
           <div
-            class="single-promo-2 single-promo-hover rounded text-center white-bg p-5"
+            style="box-shadow: none;" class="single-promo-2 single-promo-hover rounded text-center white-bg p-5"
           >
             <div class="circle-icon">
               <span class="ti-signal text-white"></span>
@@ -45,7 +35,6 @@
               {{feature.short_description}}
             </p>
           </div>
-        </div>
       </div>
       {% endfor %}
     </div>

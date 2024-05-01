@@ -48,15 +48,48 @@ style="background: url('assets/img/header-bg-5.html')no-repeat center center / c
               
            </div>
        </article>
+       <section>
+        <div id="contact_us_form"></div>
+        <form method="post" class="apply-job-form" onsubmit="applyJobForm(event)">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="col">
+                  <input type="text" class="form-control" name="first_name" placeholder="First name" required>
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" name="last_name" placeholder="Last name" required>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                  <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                  <textarea  class="form-control" name="cover_letter" placeholder="Cover Letter" rows="4" cols="50"></textarea>
+                </div>
+            </div>  
+            <br/>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Upload your Resume Here</label>
+                <input type="file" name="resume" class="form-control-file" required>
+              </div>
+              <br/>
+              <button  type="submit" class="btn solid-white-btn check-btn">Submit</button>
+          </form>
        <!-- Post end-->
+       </section>
    </div>
    
    <div class="col-lg-4 col-md-4">
        <div class="sidebar-right pl-4">
 
-           <aside class="widget widget-categories">
+           {% comment %} <aside class="widget widget-categories">
                <a href="https://rekruiters.online/job/android-developer-lucknow-jIwfsxY7/apply" target="_blank"><button type="submit" class="btn secondary-solid-btn btn-block btn-not-rounded mt-3">Apply Now</button></a>
-           </aside> 
+           </aside>  {% endcomment %}
            <aside class="widget widget-categories">
                <div class="widget-title">
                    <h6>Salary</h6>
@@ -78,4 +111,47 @@ style="background: url('assets/img/header-bg-5.html')no-repeat center center / c
 </div>
 </div>
 </div>
+<script>
+    function applyJobForm(event) {
+        event.preventDefault();
+        var formData = new FormData($('.apply-job-form')[0]);
+        
+        $.ajax({
+            type: 'POST',
+            url: {% url "apply_job" %},
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (response) {
+                $('.contact-error-message').remove();
+                console.log(response)
+                if (response.status === 201) {
+                    console.log("truw")
+                    $('#contact_us_form').html(`
+                    <div class="alert alert-success" role="alert">
+                        ${response.message}
+                    </div>
+                    `);
+                    
+                    // Reset the form
+                    document.querySelector('.apply-job-form').reset();
+                    
+                    setTimeout(function () {
+                        $('#contact_us_form').fadeOut('slow');
+                    }, 4000);
+                } else if (response.status === 400 && response.errors) {
+                    $.each(response.errors, function (field, error) {
+                        var inputField = $('[name="' + field + '"]');
+                        inputField.after('<div class="contact-error-message text-danger">' + error + '</div>');
+                    });
+                } else {
+                    console.error("Something Went Wrong");
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>
 {% endblock content %}

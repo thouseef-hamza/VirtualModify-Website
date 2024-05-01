@@ -1,5 +1,5 @@
 from django import forms
-from .models import Enquiry,ContactUS
+from .models import Enquiry,ContactUS,ApplyJob
 
 class EnquiryForm(forms.ModelForm):
     class Meta:
@@ -36,3 +36,8 @@ class ContactForm(forms.ModelForm):
         self.fields["message"].widget.attrs["placeholder"] = "Message"
         for field in self.fields:
             self.fields[field].widget.attrs["class"] = "form-control"
+
+class ApplyJobForm(forms.ModelForm):
+    class Meta:
+        model=ApplyJob
+        fields=("first_name","last_name","email","cover_letter","resume")

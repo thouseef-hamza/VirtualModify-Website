@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .models import Blog,Service,Feature,Testimonial,Client,Carousel,Career,Enquiry,ContactUS
+from .models import Blog,Service,Feature,Testimonial,Client,Carousel,Career,Enquiry,ContactUS,ApplyJob
 from django.shortcuts import get_object_or_404
-from .forms import EnquiryForm,ContactForm
+from .forms import EnquiryForm,ContactForm,ApplyJobForm
 
 
 # Create your views here.
@@ -12,14 +12,15 @@ def homePage(request):
     blogs=Blog.objects.all().order_by("-id")[:3]
     testimonials=Testimonial.objects.all().order_by("-id")[:6]
     clients=Client.objects.all()
-    carousels=Carousel.objects.all().order_by("-id")[:5]
+    carousels=Carousel.objects.all().order_by("-id")
+    print(carousels[:carousels[0].item_count])
     response_data={
         "features":features,
         "services":services,
         "blogs":blogs,
         "testimonials":testimonials,
         "clients":clients,
-        "carousels":carousels
+        "carousels":carousels[:carousels[0].item_count]
     }
     return render(request,"home/home.html",context=response_data)
 
@@ -99,3 +100,23 @@ def contact_us_view(request):
             "status": 201,
         }
     )
+
+def apply_job(request):
+    forms=ApplyJobForm(request.POST,request.FILES)
+    if not forms.is_valid():
+        return JsonResponse({"errors": forms.errors, "success": False, "status": 400})
+    ApplyJob.objects.create(
+        first_name=forms.cleaned_data["first_name"],
+        last_name=forms.cleaned_data["last_name"],
+        email=forms.cleaned_data["email"],
+        cover_letter=forms.cleaned_data["cover_letter"],
+        resume=forms.cleaned_data["resume"]
+    )
+    return JsonResponse(
+        {
+            "message": "Form Submitted Successfully",
+            "success": True,
+            "status": 201,
+        }
+    )
+    

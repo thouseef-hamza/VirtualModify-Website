@@ -5,10 +5,20 @@ from django.db import models
 class Carousel(models.Model):
     title=models.CharField(max_length=40)
     sub_title=models.CharField(max_length=60,null=True,blank=True)
-    image=models.ImageField(upload_to="carousel/")
+    image=models.ImageField(upload_to="carousel/images/",null=True,blank=True)
+    video=models.FileField(upload_to="carousel/videos/",null=True,blank=True)
+    item_count=models.IntegerField(default=5)
 
     def __str__(self) -> str:
         return self.title
+
+    def save(self, *args, **kwargs):
+        # If it's a new object or item_count is changed
+        if not self.pk or self._state.adding or 'item_count' in self.get_dirty_fields():
+            first_carousel = Carousel.objects.first()
+            if first_carousel:
+                self.item_count = first_carousel.item_count
+        super().save(*args, **kwargs)
 
 class Service(models.Model):
     title=models.CharField(max_length=100)
@@ -87,7 +97,7 @@ class ContactUS(models.Model):
     
 class Client(models.Model):
     company_name=models.CharField(max_length=40)
-    logo=models.ImageField(upload_to="clients/logo")
+    logo=models.ImageField(upload_to="clients/logo/")
 
     def __str__(self) -> str:
         return self.company_name
@@ -99,3 +109,13 @@ class Enquiry(models.Model):
 
     def __str__(self) -> str:
         return self.email
+    
+class ApplyJob(models.Model):
+    first_name=models.CharField(max_length=50)
+    last_name=models.CharField(max_length=50)
+    email=models.EmailField()
+    cover_letter=models.TextField()
+    resume=models.FileField(upload_to="resume/")
+
+    def __str__(self) -> str:
+        return self.first_name

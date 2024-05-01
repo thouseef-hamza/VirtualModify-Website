@@ -9,7 +9,7 @@
                         <h1 class="text-white mb-0">About Us</h1>
                         <div class="custom-breadcrumb">
                             <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
-                                <li class="list-inline-item breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="list-inline-item breadcrumb-item"><a href="{% url "home_page" %}">Home</a></li>
                                 <li class="list-inline-item breadcrumb-item active">About Us</li>
                             </ol>
                         </div>
@@ -68,8 +68,8 @@
                             </div>
                             
                             <div class="action-btns mt-4">
-                                <a href="contact-us.html" class="btn secondary-solid-btn mr-3">Start Project Discussion</a>
-                                <a href="project.html" class="btn secondary-outline-btn">Explore Our Work</a>
+                                <a href="{% url "contact_us" %}" class="btn secondary-solid-btn mr-3">Start Project Discussion</a>
+                                {% comment %} <a href="project.html" class="btn secondary-outline-btn">Explore Our Work</a> {% endcomment %}
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-lg-6">
-                        <a href="#">
                             <div class="single-promo-2 single-promo-hover rounded text-center white-bg p-5 h-100">
                                 <div class="circle-icon">
                                     <span class="ti-target text-white"></span>
@@ -96,10 +95,8 @@
                                 <h5>Our Mission</h5>
                                 <p>To provide end-to-end, industry leading and affordable digital transformation solutions to  businesses around the globe. </p>
                             </div>
-                        </a>
                     </div>
                     <div class="col-md-6 col-lg-6">
-                        <a href="#">
                             <div class="single-promo-2 single-promo-hover rounded text-center white-bg p-5 h-100">
                                 <div class="circle-icon">
                                     <span class="ti-flag-alt text-white"></span>
@@ -107,12 +104,11 @@
                                 <h5>Our Vision</h5>
                                 <p>To be the number one partner of choice across the world for SMEs and Enterprises in their digital transformation journey. </p>
                             </div>
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="team-single-section">
+        {% comment %} <section class="team-single-section">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12 col-lg-12 ptb-100">
@@ -189,5 +185,5 @@
                    
                 </div>
             </div>
-        </section>
+        </section> {% endcomment %}
 {% endblock content %}
