@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "home",
+    "ckeditor",
+    "ckeditor_uploader"
 ]
 
 MIDDLEWARE = [
@@ -119,3 +121,12 @@ import os
 # Media files (user-uploaded files)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Where uploaded files will be stored
+
+# CK Editor Configuration
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+CKEDITOR_UPLOAD_PATH = 'media/'
+CKEDITOR_CONFIGS = {
+    'default':{
+        'toolbar': 'full',
+    }
+}

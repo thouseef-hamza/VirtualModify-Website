@@ -3,17 +3,17 @@
 {% block content %}
  <!--header section start-->
  <section class="hero-section ptb-100 gradient-overlay"
- style="background: url({% static 'assets/img/header-bg-5.html' %}})no-repeat center center / cover">
+ style="background: url({% static 'assets/img/header-bg-5.html' %})no-repeat center center / cover">
 <div class="container">
 <div class="row justify-content-center">
     <div class="col-md-8 col-lg-7">
         <div class="page-header-content text-white text-center pt-sm-5 pt-md-5 pt-lg-0">
-            <h2 class="text-white mb-0">{{blog_detail.title}}</h2>
+            <h2 class="text-white mb-0">{{blog_detail.name}}</h2>
             <div class="custom-breadcrumb">
                 <ol class="breadcrumb d-inline-block bg-transparent list-inline py-0">
                     <li class="list-inline-item breadcrumb-item"><a href="{% url "home_page" %}">Home</a></li>
                     <li class="list-inline-item breadcrumb-item"><a href="{% url "blog_list" %}" >Blog</a></li>
-                    <li class="list-inline-item breadcrumb-item active">{{blog_detail.title}}</li>
+                    <li class="list-inline-item breadcrumb-item active">{{blog_detail.name}}</li>
                 </ol>
             </div>
         </div>
@@ -29,11 +29,14 @@
 <div class="container">
 <div class="row">
     
-    <div class="col-lg-8 col-md-8">
+    <div class="col-lg-12 col-md-12">
    
         <!-- Post-->
         <article class="post">
-            <div class="post-preview"><img src="{{blog_detail.image.url}}" alt="article" class="img-fluid"/></div>
+            <div class="post-content" style="overflow: hidden;word-wrap: break-word;">
+                {{blog_detail.body|safe}}
+            </div>
+            {% comment %} <div class="post-preview"><img src="{{blog_detail.image.url}}" alt="article" class="img-fluid"/></div>
             <div class="post-wrapper">
                 <div class="post-header">
                     <h1 class="post-title">{{blog_detail.title}}</h1>
@@ -53,13 +56,13 @@
                     <a href="#">Myth</a>                                </div>
                 </div> {% endcomment %}
                 
-            </div>
+                {% comment %}</div> {% endcomment %}
         </article>
         <!-- Post end-->
     </div>
     
-    <div class="col-lg-4 col-md-4">
-        <div class="sidebar-right pl-4">
+    {% comment %} <div class="col-lg-4 col-md-4">
+        <div class="sidebar-right pl-4"> {% endcomment %}
 
             {% comment %} <!-- Search widget-->
             <aside class="widget widget-search">
@@ -86,7 +89,7 @@
                                                     <li><a href="../blog/17.html">The Art of Digital Marketing</a></li>
                                                 </ul>
             </aside> {% endcomment %}
-            {% if blogs %}
+            {% comment %} {% if blogs %}
             <aside class="widget widget-recent-entries-custom">
                 <div class="widget-title">
                     <h6>Recent Posts</h6>
@@ -114,7 +117,7 @@
                     <button type="submit" class="btn secondary-solid-btn btn-block btn-not-rounded mt-3">Subscribe</button>
                 </form>
             </aside> 
-        </div>
+        </div> {% endcomment %}
     </div>
 </div>
 </div>

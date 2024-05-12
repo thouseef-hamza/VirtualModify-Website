@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 class Carousel(models.Model):
@@ -31,13 +31,12 @@ class Service(models.Model):
     
 
 class Blog(models.Model):
-    title=models.CharField(max_length=60)
-    image=models.ImageField(upload_to="blogs/")
-    description=models.TextField(null=True,blank=True)
-    created_at=models.DateTimeField(auto_now_add=True)
+    name=models.CharField(max_length=60)
+    sample_image=models.ImageField(upload_to="blog/",help_text="This is just for sample usage")
+    body=RichTextUploadingField(default='')
 
     def __str__(self) -> str:
-        return self.title
+        return self.name
     
 class SubBlog(models.Model):
     title=models.CharField(max_length=60)

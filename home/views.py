@@ -13,14 +13,13 @@ def homePage(request):
     testimonials=Testimonial.objects.all().order_by("-id")[:6]
     clients=Client.objects.all()
     carousels=Carousel.objects.all().order_by("-id")
-    print(carousels[:carousels[0].item_count])
     response_data={
         "features":features,
         "services":services,
         "blogs":blogs,
         "testimonials":testimonials,
         "clients":clients,
-        "carousels":carousels[:carousels[0].item_count]
+        # "carousels":carousels[:carousels[0].item_count if carousels[0] else 0]
     }
     return render(request,"home/home.html",context=response_data)
 

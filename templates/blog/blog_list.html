@@ -25,27 +25,27 @@ style="background: url('assets/img/header-bg-5.jpg')no-repeat center center / co
 <div class="module ptb-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-8">
-                {% for blog in blogs %}
+            {% for blog in blogs %}
+            <div class="col-lg-6 col-md-6">
                 <br><br>
                 <!-- Post-->
                 <article class="post">
                     <div class="post-preview">
-                        <img src="{{blog.image.url}}" alt="article" class="img-fluid"/>
-                    </div>
+                        <img src="{{blog.sample_image.url}}" alt="article" class="img-fluid"/>
+                    </div> 
                     <div class="post-wrapper">
                         <div class="post-header">
-                            <h1 class="post-title">{{blog.title|default_if_none:""}}</h1>
+                            <h1 class="post-title">{{blog.name|default_if_none:""}}</h1>
                         </div>
                         <div class="post-footer">
                             <div class="post-tags"><a href="{% url "blog_detail" blog.id %}">Read More</a></div>
                         </div>
                     </div>
                 </article>
-                {% endfor %}
             </div>
-   <div class="col-lg-4 col-md-4">
-       <div class="sidebar-right pl-4">
+            {% endfor %}
+   {% comment %} <div class="col-lg-2 col-md-2">
+       <div class="sidebar-right pl-4"> {% endcomment %}
 
            <!-- Search widget-->
            {% comment %} <aside class="widget widget-search">
@@ -74,7 +74,7 @@ style="background: url('assets/img/header-bg-5.jpg')no-repeat center center / co
            </aside> {% endcomment %}
 
            <!-- Recent entries widget-->
-           <aside class="widget widget-recent-entries-custom">
+           {% comment %} <aside class="widget widget-recent-entries-custom">
             <div class="widget-title">
                 <h6>Recent Posts</h6>
             </div>
@@ -86,9 +86,9 @@ style="background: url('assets/img/header-bg-5.jpg')no-repeat center center / co
                 </li> 
                 {% endfor %}                           
             </ul>
-        </aside>
+        </aside> {% endcomment %}
            <!-- Subscribe widget-->
-           <aside class="widget widget-categories">
+           {% comment %} <aside class="widget widget-categories">
                <div class="widget-title">
                    <h6>Newsletter</h6>
                </div>
@@ -99,10 +99,10 @@ style="background: url('assets/img/header-bg-5.jpg')no-repeat center center / co
                           placeholder="info@yourdomain.com">
                    <button type="submit" class="btn secondary-solid-btn btn-block btn-not-rounded mt-3">Subscribe</button>
                </form>
-           </aside>
-
+           </aside> {% endcomment %}
+{% comment %} 
        </div>
-   </div>
+   </div> {% endcomment %}
         </div>
     </div>
 </div>
