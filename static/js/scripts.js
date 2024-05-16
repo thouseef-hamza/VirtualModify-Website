@@ -585,3 +585,53 @@ jQuery(function ($) {
   }
 
 }); // JQuery end
+
+
+let nextDom = document.getElementById('next-v2');
+let prevDom = document.getElementById('prev-v2');
+
+let carouselDom = document.querySelector('.carousel-v2');
+let SliderDom = carouselDom.querySelector('.carousel-v2 .list-v2');
+let thumbnailBorderDom = document.querySelector('.carousel-v2 .thumbnail-v2');
+let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item-v2');
+let timeDom = document.querySelector('.carousel-v2 .time-v2');
+
+thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+let timeRunning = 3000;
+let timeAutoNext = 7000;
+
+nextDom.onclick = function(){
+    showSlider('next-v2');    
+}
+
+prevDom.onclick = function(){
+    showSlider('prev-v2');    
+}
+let runTimeOut;
+let runNextAuto = setTimeout(() => {
+    next.click();
+}, timeAutoNext)
+function showSlider(type){
+    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel-v2 .list-v2 .item-v2');
+    let thumbnailItemsDom = document.querySelectorAll('.carousel-v2 .thumbnail-v2 .item-v2');
+    
+    if(type === 'next-v2'){
+        SliderDom.appendChild(SliderItemsDom[0]);
+        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        carouselDom.classList.add('next');
+    }else{
+        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+        carouselDom.classList.add('prev');
+    }
+    clearTimeout(runTimeOut);
+    runTimeOut = setTimeout(() => {
+        carouselDom.classList.remove('next-v2');
+        carouselDom.classList.remove('prev-v2');
+    }, timeRunning);
+
+    clearTimeout(runNextAuto);
+    runNextAuto = setTimeout(() => {
+        next.click();
+    }, timeAutoNext)
+}

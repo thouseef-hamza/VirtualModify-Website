@@ -10,26 +10,7 @@
                             <div class="footer-nav-wrap text-white">
                             <img src="{% static "img/logo.png" %}" width="150px" alt="logo" class="mb-2">
                                 <p>More than two decade of incredible service, we have been creating high-performance websites, apps, and software for all size of SMEs</p>
-                                <div class="social-nav mt-4">
-                                    <ul class="list-unstyled social-list mb-0">
-                                        <li class="list-inline-item tooltip-hover">
-                                            <a href="#" class="rounded"><span class="ti-facebook"></span></a>
-                                            <div class="tooltip-item">Facebook</div>
-                                        </li>
-                                        <li class="list-inline-item tooltip-hover"><a href="#" class="rounded"><span
-                                                class="ti-twitter"></span></a>
-                                            <div class="tooltip-item">Twitter</div>
-                                        </li>
-                                        <li class="list-inline-item tooltip-hover"><a href="#" class="rounded"><span
-                                                class="ti-linkedin"></span></a>
-                                            <div class="tooltip-item">Linkedin</div>
-                                        </li>
-                                        <li class="list-inline-item tooltip-hover"><a href="#" class="rounded"><span
-                                                class="ti-dribbble"></span></a>
-                                            <div class="tooltip-item">Dribbble</div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-6">
@@ -37,16 +18,10 @@
                                 <h4 class="text-white">COMPANY</h4>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about-us.html">About Inventics</a>
+                                        <a class="nav-link" href="{% url "about_us" %}">About Evosynctech Solutions</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="services.html">About Our Services</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="blog.html">View Our Blog</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Next Generation Products</a>
+                                        <a class="nav-link" href="{% url "service_list" %}">About Our Services</a>
                                     </li>
                                 </ul>
 
@@ -54,19 +29,13 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="footer-nav-wrap text-white">
-                                <h4 class="text-white">LEGAL</h4>
+                                <h4 class="text-white">OTHERS</h4>
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Legal Information</a>
+                                        <a class="nav-link" href="#">Blog</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Privacy Policy</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Report Abuse</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Terms of Service</a>
                                     </li>
                                 </ul>
                             </div>
@@ -86,16 +55,26 @@
                                     <li class="d-flex align-items-center py-2"><span
                                             class="fas fa-envelope mr-2"></span>info@inventics.tech
                                     </li>
+
+                                    <div class="social-nav mt-4">
+                                        <ul class="list-unstyled social-list mb-0">
+                                            <li class="list-inline-item tooltip-hover">
+                                                <a href="#" class="rounded"><span class="ti-facebook"></span></a>
+                                                <div class="tooltip-item">Facebook</div>
+                                            </li>
+                                            <li class="list-inline-item tooltip-hover"><a href="#" class="rounded"> <span
+                                                    class="ti-instagram"></span></a>
+                                                <div class="tooltip-item">Instagram</div>
+                                            </li>
+                                            <li class="list-inline-item tooltip-hover"><a href="#" class="rounded"><span
+                                                    class="ti-linkedin"></span></a>
+                                                <div class="tooltip-item">Linkedin</div>
+                                            </li>
+                                        </ul>
+                                    </div>
             
                                     <!--<li class="d-flex align-items-center py-2"><span class="fas fa-phone-alt mr-2"></span> (123) 456-7890 - (123) 456-7890</li>-->
                                 </ul>
-                                {% comment %} <form class="newsletter-form mt-3" action="https://inventics.tech/subscribe" method="POST" id="contactForm" class="contact-us-form" enctype="multipart/form-data">
-                                     <input type="hidden" name="_token" value="ZBetc8BZOofG4LsiuvMgmZKt383WM023MLQar2xP">                                    <input type="text" class="input-newsletter" placeholder="Enter your email"
-                                           name="email" required="" autocomplete="off">
-                                    <button type="submit" class="disabled"
-                                            style="pointer-events: all; cursor: pointer; background:#aaff00"><i
-                                            class="fas fa-paper-plane"></i></button>
-                                </form> {% endcomment %}
                             </div>
                         </div>
                     </div>

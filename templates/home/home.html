@@ -1,5 +1,60 @@
 {% extends "index.html" %} {% load static %} {% block content %}
+<header class="header-v2">
+  <nav class="nav-v2">
+    <a class="a-v2" href=""></a>   
+    <a class="a-v2" href=""></a>
+    <a class="a-v2" href=""></a>
+  </nav>
+</header>
 {% if carousels %}
+<section class="promo-section">
+  <div class="carousel-v2">
+    <div class="list-v2">
+      {% for carousel in carousels %}
+      <div class="item-v2">
+        <img class="img-v2" src="{{carousel.image.url}}" width="100%"  />
+        <div class="content-v2">
+          <div class="author-v2">
+          </div>
+          {% with carousel.split_title as title_parts %}
+            <div class="title-v2">{{ title_parts.0 }}</div>
+            <div class="topic-v2">{{ title_parts.1 }}</div>
+        {% endwith %}
+          <div class="des-v2">
+            {{carousel.description}}
+          </div>
+          <div class="buttons-v2">
+            <button>SEE MORE</button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="thumbnail-v2">
+      {% for carousel in carousels %}
+      <div class="item-v2">
+        <img src="{{carousel.image.url}}" alt="carousel-{{carousel.title}}"/>
+        <div class="content-v2">
+          <div class="title-v2">
+            {{carousel.title}}
+          </div>
+          <div class="des-v2">
+            {{carousel.sub_title|truncatechars:30}}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="arrows-v2">
+      <button id="prev-v2"><</button>
+      <button id="next-v2">></button>
+    </div>
+    <div class="time"></div>
+  </div> 
+</section>
+{% endif %}
+
+{% comment %} {% if carousels %}
 <section class="hero-equal-height ptb-70">
   <div id="heroCarousel" class="carousel slide carousel-laptop" data-ride="carousel">
     <div class="carousel-inner">
@@ -17,7 +72,7 @@
   </div>  
 
   </section>
-{% endif %}
+{% endif %} {% endcomment %}
 {% if features %}
 <section class="promo-section p-5">
   <div class="container">
@@ -63,9 +118,7 @@
             <div
               class="services-single text-center p-5 my-md-3 my-lg-3 my-sm-0 shadow-sm grey-bg rounded"
             >
-              <i
-                class="nexicon-3d-modeling-1 services-hover icon-lg color-secondary d-block mb-4"
-              ></i>
+              <i class="{{service.logo|safe}} services-hover icon-lg color-secondary d-block mb-4"></i>
               <h5>{{service.title|default_if_none:""}}</h5>
               <p class="mb-0">
                 {{service.description|truncatechars:70|default_if_none:""}}
@@ -309,7 +362,7 @@
             <div class="single-blog-card card border-0 shadow-sm">
               <div class="blog-img position-relative">
                 <img
-                  src="{{blog.image.url}}"
+                  src="{{blog.sample_image.url}}"
                   class="card-img-top"
                   alt="blog {{blog.id}}"
                 />
@@ -320,7 +373,7 @@
               </div>
               <div class="card-body">
                 <h3 class="h5 mb-2 card-title">
-                  <a href="blog-details/autonomous-vs-automated.html"
+                  <a href="{% url "blog_detail" blog.id %}"
                     >{{blog.title|default_if_none:""}}</a
                   >
                 </h3>

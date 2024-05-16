@@ -1,28 +1,38 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
 # Create your models here.
 
+def validate_title(value):
+    words = value.split()
+    if len(words) < 1:
+        raise ValidationError(
+            _('Title should not contain only one word.'),
+            code='invalid'
+        )
+
 class Carousel(models.Model):
-    title=models.CharField(max_length=40)
-    sub_title=models.CharField(max_length=60,null=True,blank=True)
+    title=models.CharField(max_length=40,validators=[validate_title])
+    description=models.TextField()
     image=models.ImageField(upload_to="carousel/images/",null=True,blank=True)
-    video=models.FileField(upload_to="carousel/videos/",null=True,blank=True)
-    item_count=models.IntegerField(default=5)
+
+    @property
+    def split_title(self):
+        title_list = self.title.split(" ")
+        main_title = " ".join(title_list[:-1])
+        second_title = title_list[-1]
+        return main_title, second_title
+        
+
 
     def __str__(self) -> str:
         return self.title
 
-    def save(self, *args, **kwargs):
-        # If it's a new object or item_count is changed
-        if not self.pk or self._state.adding or 'item_count' in self.get_dirty_fields():
-            first_carousel = Carousel.objects.first()
-            if first_carousel:
-                self.item_count = first_carousel.item_count
-        super().save(*args, **kwargs)
-
 class Service(models.Model):
     title=models.CharField(max_length=100)
-    logo=models.ImageField(upload_to="services/logo")
+    logo=models.CharField(max_length=100)
     image=models.ImageField(upload_to="services/")
     description=models.TextField(null=True,blank=True)
 
@@ -33,6 +43,7 @@ class Service(models.Model):
 class Blog(models.Model):
     name=models.CharField(max_length=60)
     sample_image=models.ImageField(upload_to="blog/",help_text="This is just for sample usage")
+    created_at=models.DateTimeField(default=timezone.now)
     body=RichTextUploadingField(default='')
 
     def __str__(self) -> str:

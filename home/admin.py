@@ -12,4 +12,5 @@ admin.site.register(Client)
 admin.site.register(Testimonial)
 admin.site.register(JobType)
 admin.site.register(Enquiry)
+admin.site.register(ApplyJob)
 

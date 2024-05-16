@@ -19,7 +19,7 @@ def homePage(request):
         "blogs":blogs,
         "testimonials":testimonials,
         "clients":clients,
-        # "carousels":carousels[:carousels[0].item_count if carousels[0] else 0]
+        "carousels":carousels[:4]
     }
     return render(request,"home/home.html",context=response_data)
 
