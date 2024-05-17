@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+import re
 # Create your models here.
 
 def validate_title(value):
@@ -15,8 +16,9 @@ def validate_title(value):
 
 class Carousel(models.Model):
     title=models.CharField(max_length=40,validators=[validate_title])
-    description=models.TextField()
-    image=models.ImageField(upload_to="carousel/images/",null=True,blank=True)
+    description=models.TextField(blank=True)
+    image=models.ImageField(upload_to="carousel/images/",null=True)
+    service=models.OneToOneField("Service",on_delete=models.SET_NULL,null=True,blank=True)
 
     @property
     def split_title(self):
@@ -24,9 +26,9 @@ class Carousel(models.Model):
         main_title = " ".join(title_list[:-1])
         second_title = title_list[-1]
         return main_title, second_title
-        
-
-
+    
+    
+    
     def __str__(self) -> str:
         return self.title
 
@@ -35,6 +37,12 @@ class Service(models.Model):
     logo=models.CharField(max_length=100)
     image=models.ImageField(upload_to="services/")
     description=models.TextField(null=True,blank=True)
+
+    def save(self, *args, **kwargs):
+        matches = re.findall(r'fa-[^\s"]+', self.logo)
+        if matches:
+            self.logo = ' '.join(matches)
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.title
@@ -48,15 +56,6 @@ class Blog(models.Model):
 
     def __str__(self) -> str:
         return self.name
-    
-class SubBlog(models.Model):
-    title=models.CharField(max_length=60)
-    mage=models.ImageField(upload_to="blogs/")
-    description=models.TextField(null=True,blank=True)
-
-    def __str__(self) -> str:
-        return self.title
-    
 
 class Testimonial(models.Model):
     company_name=models.CharField(max_length=40)

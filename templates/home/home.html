@@ -23,9 +23,11 @@
           <div class="des-v2">
             {{carousel.description}}
           </div>
+          {% if carousel.service_id %}
           <div class="buttons-v2">
-            <button>SEE MORE</button>
+            <a href="{% url "service_detail" carousel.service_id %}" style="border:2px solid #AAFF00;color:#AAFF00;text-align:center;"><h6 style="margin-top:5px;">SEE MORE</h6></a>
           </div>
+          {% endif %}
         </div>
       </div>
       {% endfor %}
@@ -243,7 +245,7 @@
       <div class="col-md-10 col-lg-9">
         <div class="section-heading text-center text-white mb-5">
           <h2 class="green-color">HIRE US FOR YOUR NEXT PLAN</h2>
-          <p class="lead">Start Project With Virtual Modify</p>
+          <p class="lead">Start Project With EvoSynchTech</p>
         </div>
       </div>
     </div>

@@ -608,7 +608,7 @@ prevDom.onclick = function(){
     showSlider('prev-v2');    
 }
 let runTimeOut;
-let runNextAuto = setTimeout(() => {
+let runNextAuto = setTimeout((next) => {
     next.click();
 }, timeAutoNext)
 function showSlider(type){

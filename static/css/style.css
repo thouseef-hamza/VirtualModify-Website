@@ -1823,7 +1823,6 @@ nav.scrolled{
 }
 .services-single:after{
     position: absolute;
-    content: url('../img/service-bottom-shape.png');
     right: 0;
     bottom: -8px;
 }

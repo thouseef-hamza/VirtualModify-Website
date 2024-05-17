@@ -15,10 +15,16 @@
             <div class="collapse navbar-collapse h-auto" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto menu">
                     <li><a href="{% url 'home_page' %}">Home</a></li>
+                    {% if service_exist %}
                     <li><a href="{% url "service_list" %}">Services</a></li>
+                    {% endif %}
                     <li><a href="{% url "about_us" %}">About Us</a></li>
+                    {% if career_exist %}
                     <li><a href="{% url "career_list" %}">Careers</a></li>
+                    {% endif %}
+                    {% if blog_exist %}
                     <li><a href="{% url "blog_list" %}">Blog</a></li>
+                    {% endif %}
                     <li><a href="{% url "contact_us" %}" class="btn solid-white-btn check-btn">LET'S TALK</a></li>
                 </ul>
             </div>
